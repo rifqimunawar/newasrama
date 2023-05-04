@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AboutSeeder extends Seeder
 {
@@ -13,9 +14,9 @@ class AboutSeeder extends Seeder
     public function run(): void
     {
         DB::table('about')->insert([
-            'judul' => 'jdul ketiga',
+            'img' => 'about_-1678439711.jpeg',
+            'link' => 'youtube.com',
             'deskripsi' => 'deskripsi judul ke 3',
-            'img' => 'asrama0.jpeg',
         ]);
     }
 }
