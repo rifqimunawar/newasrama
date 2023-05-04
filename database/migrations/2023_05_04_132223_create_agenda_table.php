@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('agenda', function (Blueprint $table) {
             $table->id();
+            $table->string('hari');
+            $table->string('waktu');
+            $table->string('kegiatan');
             $table->timestamps();
         });
     }
