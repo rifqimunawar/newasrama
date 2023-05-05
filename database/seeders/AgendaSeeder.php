@@ -16,7 +16,7 @@ class AgendaSeeder extends Seeder
         DB::table('agendas')->insert([
             'hari' => 'senin',
             'waktu' => '21.00',
-            'kegiatan' => 'mengaji',
+            'kegiatan' => 'mengaji sambil tidur',
         ]);
         DB::table('agendas')->insert([
             'hari' => 'selasa',

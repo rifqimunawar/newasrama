@@ -1,4 +1,4 @@
-@section('title') {{ 'Galeri' }}@endsection
+@section('title') {{ 'Galery' }}@endsection
 @extends('client.layout.app')
 @section('content')
     <!-- ======= Our Portfolio Section ======= -->
@@ -10,7 +10,7 @@
 
         <div class="row portfolio-container">
 
-          @foreach ($galeris as $galeri)
+          @foreach ($galeries as $galeri)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="{{ asset('storage/img/' . $galeri['img']) }}" class="img-fluid" alt="">

@@ -11,32 +11,68 @@
 <body style="background-image: url('{{ asset('storage/img/asrama3.jpeg') }}');">
 
 	<div class="overlay"></div>
-  <form action="/store" method="post" class="box">
-    @csrf
-		<div class="header"style="background-image: url('{{ asset('storage/img/asrama3.jpeg') }}');">
+
+<form method="POST" action="{{ route('register') }}" class="box">>
+  @csrf
+
+
+  <div class="header"style="background-image: url('{{ asset('storage/img/asrama3.jpeg') }}');">
 			
-			<p>Selamat Datang di Asrama Puteri Baiturrahman</p>
-			
-		</div>
-		<div class="login-area">
-			<input type="name" name="name" class="username" placeholder="Nama Lengkap">
-			<input type="email" name="email" class="username" placeholder="Email">
-			<input type="password" name="password" class="password" placeholder="Password"><br>
-      <button type="submit" class="submit">Register</button><br>
+    <p>Selamat Datang di Asrama Puteri Baiturrahman</p>
+    
+  </div>
+
+  <div class="login-area">
+        <div>
+          <input id="name" type="text" name="name" value="{{ old('name') }}" 
+          required class="username" placeholder="Nama Lengkap">
+          @error('name')
+              <span>{{ $message }}</span>
+          @enderror
+        </div>
+        <div>
+          <input id="email" type="email" name="email" value="{{ old('email') }}" 
+          required class="username" placeholder="Email"> 
+          @error('email')
+              <span>{{ $message }}</span>
+          @enderror
+      </div>
+      <div>
+        <input id="password" type="password" name="password" required
+        class="username" placeholder="Password">
+        @error('password')
+            <span>{{ $message }}</span>
+        @enderror
+      </div>
+      <div>
+        <input id="password_confirmation" type="password" name="password_confirmation" required
+        class="username" placeholder="Confirm Password">
+      </div>
+      <div>
+        <select id="role_id" name="role_id" required class="username" placeholder="Role">
+            @foreach ($roles as $role)
+                <option value="{{ $role->id }}">{{ $role->role }}</option>
+            @endforeach
+        </select>
+        @error('role_id')
+            <span>{{ $message }}</span>
+        @enderror
+      </div>
+      <div>
+        <button type="submit" class="submit">{{ __('Register') }}</button>
+      </div>
       <a href="/login" type="sumbit" class="sumbit" style="text-decoration: none">Kembali</a>
-		</div>
-    @if (session('error'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: red; heigt:2rem; padding:10px; border-radius;10px">
-        {{ session('error') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-  @endif
-  </form>
+  </div>
 
 
-	
 
-</body> 
-</html>
+
+
+
+
+
+
+
+
+
+</form>

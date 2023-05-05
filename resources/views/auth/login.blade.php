@@ -22,7 +22,7 @@
 			<input type="email" name="email" class="username" placeholder="Email">
 			<input type="password" name="password" class="password" placeholder="Password"><br>
       <button type="submit" class="submit">Login</button><br>
-      <a href="/register"class="register" style="text-decoration: none">Belum Punya Akun</a>
+      <a href="/register" style="text-decoration: none">Belum Punya Akun</a>
 		</div>
     @if (session('error'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: red; heigt:2rem; padding:10px; border-radius;10px">

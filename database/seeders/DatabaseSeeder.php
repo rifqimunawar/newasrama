@@ -20,12 +20,13 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             // UserSeeder::class,
-            HomeSeeder::class,
             AboutSeeder::class,
             AgendaSeeder::class,
-            KamarSeeder::class,
             ContactSeeder::class,
             GalerySeeder::class,
+            HomeSeeder::class,
+            KamarSeeder::class,
+            RoleSeeder::class,
         ]);
     }
 }

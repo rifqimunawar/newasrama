@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\GaleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +26,7 @@ use App\Http\Controllers\HomeController;
 // Route Client
 // ==============================================================
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/galeri', [GaleriController::class, 'index'])->name('index');
-Route::get('/team', [TeamController::class, 'index'])->name('index');
+Route::get('/galeri', [GaleryController::class, 'index'])->name('index');
 Route::get('/agenda', [AgendaController::class, 'index'])->name('index');
 Route::get('/contact', [ContactController::class, 'index'])->name('index');
 Route::post('/contact/store', [ContactController ::class, 'store'])->name('store');
@@ -32,6 +34,10 @@ Route::post('/contact/store', [ContactController ::class, 'store'])->name('store
 // Route Login
 // ==============================================================
 
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
 // Route::get('/login', [AuthController::class, 'login'])->name('login');
 // Route::get('/register', [AuthController::class, 'register'])->name('register');
 // Route::post('/store', [AuthController::class, 'store'])->name('store');
