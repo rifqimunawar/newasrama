@@ -1,4 +1,4 @@
-@section('title') {{ 'Team' }}@endsection
+@section('title') {{ 'Penghuni' }}@endsection
 @extends('client.layout.app')
 @section('content')
     <!-- ======= Our Team Section ======= -->

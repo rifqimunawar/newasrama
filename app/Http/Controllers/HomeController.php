@@ -30,4 +30,30 @@ class HomeController extends Controller
         $keg=Agenda::count();
         return view('admin.index', compact('count', 'kamar', 'gal','keg'));
     }
+    public function list(Request $request)
+    {
+        $list = Home::latest()->get();
+        return view('admin.home.index', compact('list'));
+    }
+    public function edit($id, Request $request)
+    {
+        $edit = Home::find($id);
+        return view('admin.home.edit', compact('edit'));
+    }
+    public function update($id, Request $request)
+    {
+        $home = Home::find($id);
+        $home->judul = $request->judul;
+        $home->deskripsi = $request->deskripsi;
+        $home->link = $request->link;
+        $home->update();
+        if ($request->img) {
+            $extension = $request->img->getClientOriginalExtension();
+            $newFileName = 'home' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
+            $request->file('img')->storeAs('/img', $newFileName);
+            $home['img'] = $newFileName;
+            $home->update();
+        }
+        return redirect('/admin/home/');
+    }
 }

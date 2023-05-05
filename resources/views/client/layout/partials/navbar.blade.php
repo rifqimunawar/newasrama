@@ -21,12 +21,9 @@
           @auth
             <li><a class="nav-link scrollto {{ 'galeri' ==request()->path()? 'active' :''}}" href="/galeri">Galeri</a></li>
             <li><a class="nav-link scrollto {{ 'berita' ==request()->path()? 'active' :''}} " href="/agenda">Agenda</a></li>
-            <li><a class="nav-link scrollto {{ 'team' ==request()->path()? 'active' :''}} " href="/team">Penghuni</a></li>
+            <li><a class="nav-link scrollto {{ 'user' ==request()->path()? 'active' :''}} " href="/user">Penghuni</a></li>
           @endauth
           <li><a class="nav-link scrollto {{ 'contact' ==request()->path()? 'active' :''}}" href="/contact">Contact</a></li>
-          @auth
-            <li><a class="nav-link scrollto {{ 'contact' ==request()->path()? 'active' :''}}" href="/logout">Logout</a></li>
-          @endauth
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

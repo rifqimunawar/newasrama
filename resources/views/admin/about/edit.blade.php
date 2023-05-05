@@ -21,8 +21,8 @@
                         @method('put')
                         @csrf
                         <div class="my-3">
-                            <label for="deskripsiabout">Deskripsi</label><br>
-                            <input type="textarea" name="deskripsiabout" class="form-control" id="deskripsiabout" class="mb-3" value="{{ $edit->deskripsiabout }}" id="deskripsiabout" />
+                            <label for="deskripsi">Deskripsi</label><br>
+                            <input type="textarea" name="deskripsi" class="form-control" id="deskripsi" class="mb-3" value="{{ $edit->deskripsi }}" id="deskripsi" />
                         </div>
 
                         <div class="my-3">

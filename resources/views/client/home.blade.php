@@ -28,8 +28,15 @@
                                 akan menempuh pendidikan di berbagai Universitas di Bandung. Terdapat sekitar lebih dari
                                 25 kamar yang dapat dihuni, dimana 1 kamar dapat dihuni oleh 2 orang dengan total 40
                                 santri yang menjadi penghuni asrama tercatat hingga 20 Juli 2022..</p>
-                            <a href="/login"
-                                class="btn-get-started animate__animated animate__fadeInUp scrollto">Login</a>
+                                @if (Auth::check())
+                                <a href="/logout"class="btn-get-started animate__animated animate__fadeInUp scrollto">
+                                    Logout
+                                </a>
+                                @else
+                                    <a href="{{ route('login') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">
+                                        Login
+                                    </a>
+                                @endif
                         </div>
                     </div>
                 </div>
@@ -41,8 +48,15 @@
                         <div class="carousel-content container">
                             <h2 class="animate__animated animate__fadeInDown">{{ $hero['judul'] }}</h2>
                             <p class="animate__animated animate__fadeInUp">{{ $hero['deskripsi'] }}</p>
-                            <a href="/login"
-                                class="btn-get-started animate__animated animate__fadeInUp scrollto">Login</a>
+                            @if (Auth::check())
+                            <a href="/logout"class="btn-get-started animate__animated animate__fadeInUp scrollto">
+                                Logout
+                            </a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">
+                                    Login
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>
