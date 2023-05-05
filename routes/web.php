@@ -35,6 +35,7 @@ Route::post('/contact/store', [ContactController ::class, 'store'])->name('store
 // Route Login
 // ==============================================================
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 // ==============================================================
