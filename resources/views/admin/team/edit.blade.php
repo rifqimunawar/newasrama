@@ -7,17 +7,17 @@
   <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Edit Pengajar </h1>
+    <h1 class="h3 mb-2 text-gray-800">Edit Penghuni </h1>
     <p class="mb-4"></p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit Pengajar</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Edit Penghuni</h6>
         </div>
         <div class="card-body">
 
-          <form action="/admin/penghuni/{{ $edit->id }}" method="post" enctype="multipart/form-data" >
+          <form action="/admin/penghuni/{{$edit->id}}" method="post" enctype="multipart/form-data" >
             @method('put')
             @csrf 
 
@@ -27,9 +27,9 @@
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nomor Kamar</label>
-              <select name="posisi" class="form-select" required aria-label="posisi">
+              <select name="kamar_id" class="form-select" required aria-label="kamar_id">
                 @foreach ($kamar as $item)
-                <option value="{{ $item->id }}" @if ( $edit->posisi == "{{ $item->id }}" ) selected @endif>{{ $item->kamar }}</option>
+                <option value="{{ $item->id }}" @if ( $edit->kamar == "{{ $item->id }}" ) selected @endif>{{ $item->kamar }}</option>
                 @endforeach
                 {{-- <option value="Lantai 1 | 1A" @if ( $edit->posisi == "Lantai 1 | 1A" ) selected @endif>Lantai 1 | 1A</option> --}}
             </select><br>

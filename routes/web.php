@@ -72,12 +72,12 @@ Route::middleware(['auth', 'role:1,'])->group(function () {
     // Route Admin User Management
     Route::get('/admin/user', [UserController ::class, 'list'])->name('list');
     Route::get('/admin/dataAdmin', [UserController ::class, 'dataAdmin'])->name('dataAdmin');
-    // Route Admin Team Edit
     Route::get('/admin/penghuni', [UserController ::class, 'list'])->name('list');
+    Route::get('/admin/penghuni/{id}/edit', [UserController ::class, 'edit'])->name('edit');
+    Route::put('/admin/penghuni/{id}', [UserController ::class, 'update'])->name('update');
+    // Route Admin Team Edit
     Route::get('/admin/team/create', [TeamController ::class, 'create'])->name('create');
     Route::post('/admin/team/store', [TeamController ::class, 'store'])->name('store');
-    Route::get('/admin/team/{id}/edit', [TeamController ::class, 'edit'])->name('edit');
-    Route::put('/admin/team/{id}', [TeamController ::class, 'update'])->name('update');
     Route::delete('/admin/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
     // Route Admin Data Admin
     Route::get('/admin/user/create', [UserController ::class, 'create'])->name('create');

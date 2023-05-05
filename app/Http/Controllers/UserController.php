@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kamar;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
@@ -18,11 +20,12 @@ class UserController extends Controller
         if ($request->has('search')) {
         $list = User::Where('name','LIKE','%'.$request->search.'%')
         ->orWhere('pembayaran','LIKE','%'.$request->search.'%')
+        ->orWhere('kamar','LIKE','%'.$request->search.'%')
         ->orWhere('domisili','LIKE','%'.$request->search.'%')
         ->orWhere('kampus','LIKE','%'.$request->search.'%')
         ->where('role_id', 2)->get();
     } else {
-        $list = User::latest()->where('role_id', 2)->get();
+        $list = User::latest()->where('role_id', 2)->when('kamar')->get();
     }
         return view('admin.team.index', compact('list'));
     }
@@ -76,9 +79,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $edit=User::findOrFail($id)->when('kamar')->get();
-        dd($edit);
-        return view('admin.team.edit', compact('edit'));
+        $edit=User::findOrFail($id);
+        $kamar = Kamar::all();
+        // dd($edit);
+        return view('admin.team.edit', compact('edit', 'kamar'));
     }
 
     /**  
@@ -88,15 +92,13 @@ class UserController extends Controller
     public function update($id, Request $request)
     {
         $user = User::find($id);
-        $user->nama = $request->nama;
-        $user->kamar = $request->kamar;
+        $user->name = $request->name;
+        $user->kamar_id = $request->kamar_id;
         $user->hp = $request->hp;
         $user->kampus = $request->kampus;
         $user->domisili = $request->domisili;
         $user->pembayaran = $request->pembayaran;       
 
-
-        $user->update();
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'user_update' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
@@ -104,7 +106,8 @@ class UserController extends Controller
             $user['img'] = $newFileName;
             $user->update();
         }
-        return redirect('/admin/team/');
+        Alert::success('Terima Kasih', 'Data Penghuni Sudah Diupdate');
+        return redirect('/admin/penghuni/');
     }
 
     /**

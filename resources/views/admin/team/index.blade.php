@@ -41,7 +41,7 @@
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td>{{ $lis['name'] }}</td>
-                        <td>{{ $lis['kamar_id'] }}</td>
+                        <td>{{ $lis->kamar->kamar }}</td>
                         <td>{{ $lis['hp'] }}</td>
                         <td>{{ $lis['kampus'] }}</td>
                         <td>{{ $lis['domisili'] }}</td>
@@ -50,7 +50,7 @@
                             <img src="{{ asset('storage/img/'.$lis['img']) }}" width="60" class="img-fluid img-thumbnail" style="max-height: 60px">
                         </td>
                         <td class="text-center btn-group">
-                            <a href="/admin/user/{{ $lis->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="/admin/penghuni/{{ $lis->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                             <form action="{{ route('user.destroy', $lis->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
