@@ -7,6 +7,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ContactController;
@@ -80,3 +81,10 @@ Route::delete('/admin/agenda/{id}', [AgendaController::class, 'destroy'])->name(
 // Route Admin Message Edit
 Route::get('/admin/contact', [ContactController ::class, 'list'])->name('list')->middleware('auth');
 Route::delete('/admin/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy')->middleware('auth');
+// Route Admin Kamar Management
+Route::get('/admin/kamar', [KamarController ::class, 'index'])->name('index')->middleware('auth');
+Route::get('/admin/kamar/create', [KamarController ::class, 'create'])->name('create')->middleware('auth');
+Route::post('/admin/kamar/store', [KamarController ::class, 'store'])->name('store')->middleware('auth');
+Route::get('/admin/kamar/{id}/edit', [KamarController ::class, 'edit'])->name('edit')->middleware('auth');
+Route::put('/admin/kamar/{id}', [KamarController ::class, 'update'])->name('update')->middleware('auth');
+Route::delete('/admin/kamar/{id}', [KamarController::class, 'destroy'])->name('kamar.destroy')->middleware('auth');

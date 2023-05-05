@@ -19,9 +19,10 @@
 			
 		</div>
 		<div class="login-area">
+			<input type="name" name="name" class="username" placeholder="Nama Lengkap">
 			<input type="email" name="email" class="username" placeholder="Email">
 			<input type="password" name="password" class="password" placeholder="Password"><br>
-      <button type="submit" class="submit">Login</button>
+      <button type="submit" class="submit">Register</button>
 		</div>
     @if (session('error'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert" style="background-color: red; heigt:2rem; padding:10px; border-radius;10px">
@@ -38,54 +39,3 @@
 
 </body> 
 </html>
-
-{{-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Form</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 mt-5">
-        <div class="card">
-          <div class="card-header bg-primary text-white">
-            <h4>Login</h4>
-          </div>
-          <div class="card-body">
-            <form action="/login" method="post">
-              @csrf
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
-              </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
-              </div>
-              @if (session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-              @endif
-
-              <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</body>
-</html> --}}
