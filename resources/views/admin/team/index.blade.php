@@ -41,8 +41,8 @@
                     @foreach ($list as $lis)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $lis['nama'] }}</td>
-                        <td>{{ $lis['posisi'] }}</td>
+                        <td>{{ $lis['name'] }}</td>
+                        <td>{{ $lis['kamar_id'] }}</td>
                         <td>{{ $lis['hp'] }}</td>
                         <td>{{ $lis['kampus'] }}</td>
                         <td>{{ $lis['domisili'] }}</td>

@@ -37,6 +37,7 @@ Route::post('/contact/store', [ContactController ::class, 'store'])->name('store
 // ==============================================================
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/store', [AuthController::class, 'store'])->name('store');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 // ==============================================================
@@ -58,7 +59,7 @@ Route::get('/admin/galeri/{id}/edit', [GaleriController ::class, 'edit'])->name(
 Route::put('/admin/galeri/{id}', [GaleriController ::class, 'update'])->name('update')->middleware('auth');
 Route::delete('/admin/galeri/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy')->middleware('auth');
 // Route Admin Team Edit
-Route::get('/admin/team', [TeamController ::class, 'list'])->name('list')->middleware('auth');
+Route::get('/admin/penghuni', [UserController ::class, 'list'])->name('list')->middleware('auth');
 Route::get('/admin/team/create', [TeamController ::class, 'create'])->name('create')->middleware('auth');
 Route::post('/admin/team/store', [TeamController ::class, 'store'])->name('store')->middleware('auth');
 Route::get('/admin/team/{id}/edit', [TeamController ::class, 'edit'])->name('edit')->middleware('auth');

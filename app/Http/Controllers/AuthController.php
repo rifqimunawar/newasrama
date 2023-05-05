@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 
 /**
@@ -61,10 +62,10 @@ public function store(Request $request)
 {
     $user = new User ();
     $user->name = $request->name;
-    $user->kamar_id = $request->kamar_id;
-    $user->role_id = $request->role_id;
+    // $user->kamar_id = $request->kamar_id;
+    // $user->role_id = $request->role_id;
     $user->email = $request->email;
-    $user->password = $request->password;
+    $user->password = Hash::make($request->password);
     $user->save();
     return redirect('/login');
 }

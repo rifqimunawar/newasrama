@@ -14,9 +14,25 @@ class UserController extends Controller
             $user = User::Where('nama','LIKE','%'.$request->search.'%')->get();
             } 
         else {
-        $user=\App\Models\User ::all();
+        $user= User ::where('role_id', 1)->get();
     }
     return view('admin.user.index', compact('user'));
+    }
+
+    // data penghuni 
+    public function list(Request $request)
+    {
+    if ($request->has('search')) {
+    $list = User::
+    
+    Where('name','LIKE','%'.$request->search.'%')
+    ->orWhere('username','LIKE','%'.$request->search.'%')
+    ->get();
+    } else {
+    $list = User::where('role_id', 2)->get();
+    }
+    // dd($list);
+    return view('admin.team.index', compact('list'));
     }
     public function create()
     {

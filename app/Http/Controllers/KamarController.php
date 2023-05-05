@@ -12,7 +12,7 @@ class KamarController extends Controller
         $kamar = Kamar ::latest()
                     ->when('user')    
                     ->get();
-                    dd($kamar);
+                    // dd($kamar);
         return view ('admin.kamar.index', compact('kamar'));
     }
 }
