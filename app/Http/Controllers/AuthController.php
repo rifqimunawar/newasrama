@@ -58,4 +58,8 @@ class AuthController extends Controller
 
         return redirect('/admin');
     }
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/');
+      }
 }

@@ -22,4 +22,12 @@ class HomeController extends Controller
         $keg=Agenda::count();
         return view('client.home', compact('home', 'about', 'count', 'gal', 'kamar', 'keg'));
     }
+    public function statistik(Request $request)
+    {
+        $count =User::count();
+        $kamar=Kamar::count();
+        $gal=Galery::count();
+        $keg=Agenda::count();
+        return view('admin.index', compact('count', 'kamar', 'gal','keg'));
+    }
 }

@@ -32,14 +32,14 @@
         </div>
         <div>
           <input id="email" type="email" name="email" value="{{ old('email') }}" 
-          required class="username" placeholder="Email"> 
+          required class="username" placeholder="Email"> <br>
           @error('email')
               <span>{{ $message }}</span>
           @enderror
       </div>
       <div>
         <input id="password" type="password" name="password" required
-        class="username" placeholder="Password">
+        class="username" placeholder="Password"><br>
         @error('password')
             <span>{{ $message }}</span>
         @enderror
@@ -53,7 +53,7 @@
             @foreach ($roles as $role)
                 <option value="{{ $role->id }}">{{ $role->role }}</option>
             @endforeach
-        </select>
+        </select><br>
         @error('role_id')
             <span>{{ $message }}</span>
         @enderror
