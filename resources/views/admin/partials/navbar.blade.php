@@ -52,8 +52,8 @@
     </li>
 
     <!-- Nav Item - Team -->
-    <li class="nav-item {{ '/admin/team' ==request()->path()? 'active' :''}}">
-        <a class="nav-link" href="/admin/team">
+    <li class="nav-item {{ '/admin/penghuni' ==request()->path()? 'active' :''}}">
+        <a class="nav-link" href="/admin/penghuni">
             <i class="fas fa-fw fa-users"></i>
             <span>Data Penghuni</span></a>
     </li>

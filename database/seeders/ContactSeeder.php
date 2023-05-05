@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class AgendaSeeder extends Seeder
+class ContactSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,11 +17,6 @@ class AgendaSeeder extends Seeder
             'hari' => 'senin',
             'waktu' => '21.00',
             'kegiatan' => 'mengaji',
-        ]);
-        DB::table('agendas')->insert([
-            'hari' => 'selasa',
-            'waktu' => '21.00',
-            'kegiatan' => 'dakwah',
         ]);
     }
 }

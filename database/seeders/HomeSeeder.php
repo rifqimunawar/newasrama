@@ -13,17 +13,17 @@ class HomeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('home')->insert([
+        DB::table('homes')->insert([
             'judul' => 'visi dan misi',
             'deskripsi' => 'Keterangan visi dan misi',
             'img' => 'asrama0.jpeg',
         ]);
-        DB::table('home')->insert([
+        DB::table('homes')->insert([
             'judul' => 'asramanya bagus',
             'deskripsi' => 'Keterangan deskripsi kedua',
             'img' => 'asrama0.jpeg',
         ]);
-        DB::table('home')->insert([
+        DB::table('homes')->insert([
             'judul' => 'jdul ketiga',
             'deskripsi' => 'deskripsi judul ke 3',
             'img' => 'asrama0.jpeg',

@@ -51,8 +51,8 @@
                             <img src="{{ asset('storage/img/'.$lis['img']) }}" width="60" class="img-fluid img-thumbnail" style="max-height: 60px">
                         </td>
                         <td class="text-center btn-group">
-                            <a href="/admin/team/{{ $lis->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                            <form action="{{ route('team.destroy', $lis->id) }}" method="POST">
+                            <a href="/admin/user/{{ $lis->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('user.destroy', $lis->id) }}" method="POST">
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger btn-sm mx-2" onclick="return confirm

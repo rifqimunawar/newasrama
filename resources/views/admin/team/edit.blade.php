@@ -17,49 +17,21 @@
         </div>
         <div class="card-body">
 
-          <form action="/admin/team/{{ $edit->id }}" method="post" enctype="multipart/form-data" >
+          <form action="/admin/penghuni/{{ $edit->id }}" method="post" enctype="multipart/form-data" >
             @method('put')
             @csrf 
 
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nama Penghuni</label>
-              <input type="text" class="form-control" id="exampleFormControlInput1" name="nama" value="{{ $edit->nama }}" >
+              <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ $edit->name }}" >
             </div>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nomor Kamar</label>
-              <select name="posisi" class="form-select"" required aria-label="posisi">
-                <option value="Lantai 1 | 1A" @if ( $edit->posisi == "Lantai 1 | 1A" ) selected @endif>Lantai 1 | 1A</option>
-                <option value="Lantai 1 | 1B" @if ( $edit->posisi == "Lantai 1 | 1B" ) selected @endif>Lantai 1 | 1B</option>
-                <option value="Lantai 1 | 1C" @if ( $edit->posisi == "Lantai 1 | 1C" ) selected @endif>Lantai 1 | 1C</option>
-                <option value="Lantai 1 | 1D" @if ( $edit->posisi == "Lantai 1 | 1D" ) selected @endif>Lantai 1 | 1D</option>
-                <option value="Lantai 1 | 1E" @if ( $edit->posisi == "Lantai 1 | 1E" ) selected @endif>Lantai 1 | 1E</option>
-                <option value="Lantai 1 | 1F" @if ( $edit->posisi == "Lantai 1 | 1F" ) selected @endif>Lantai 1 | 1F</option>
-                <option value="Lantai 1 | 1G" @if ( $edit->posisi == "Lantai 1 | 1G" ) selected @endif>Lantai 1 | 1G</option>
-                <option value="Lantai 1 | 1H" @if ( $edit->posisi == "Lantai 1 | 1H" ) selected @endif>Lantai 1 | 1H</option>
-                <option value="Lantai 1 | 1I" @if ( $edit->posisi == "Lantai 1 | 1I" ) selected @endif>Lantai 1 | 1I</option>
-                <option value="Lantai 1 | 1J" @if ( $edit->posisi == "Lantai 1 | 1J" ) selected @endif>Lantai 1 | 1J</option>
-
-                <option value="Lantai 2 | 2A" @if ( $edit->posisi == "Lantai 2 | 2A" ) selected @endif>Lantai 2 | 2A</option>
-                <option value="Lantai 2 | 2B" @if ( $edit->posisi == "Lantai 2 | 2B" ) selected @endif>Lantai 2 | 2B</option>
-                <option value="Lantai 2 | 2C" @if ( $edit->posisi == "Lantai 2 | 2C" ) selected @endif>Lantai 2 | 2C</option>
-                <option value="Lantai 2 | 2D" @if ( $edit->posisi == "Lantai 2 | 2D" ) selected @endif>Lantai 2 | 2D</option>
-                <option value="Lantai 2 | 2E" @if ( $edit->posisi == "Lantai 2 | 2E" ) selected @endif>Lantai 2 | 2E</option>
-                <option value="Lantai 2 | 2F" @if ( $edit->posisi == "Lantai 2 | 2F" ) selected @endif>Lantai 2 | 2F</option>
-                <option value="Lantai 2 | 2G" @if ( $edit->posisi == "Lantai 2 | 2G" ) selected @endif>Lantai 2 | 2G</option>
-                <option value="Lantai 2 | 2H" @if ( $edit->posisi == "Lantai 2 | 2H" ) selected @endif>Lantai 2 | 2H</option>
-                <option value="Lantai 2 | 2I" @if ( $edit->posisi == "Lantai 2 | 2I" ) selected @endif>Lantai 2 | 2I</option>
-                <option value="Lantai 2 | 2J" @if ( $edit->posisi == "Lantai 2 | 2J" ) selected @endif>Lantai 2 | 2J</option>
-
-                <option value="Lantai 3 | 3A" @if ( $edit->posisi == "Lantai 3 | 3A" ) selected @endif>Lantai 3 | 3A</option>
-                <option value="Lantai 3 | 3B" @if ( $edit->posisi == "Lantai 3 | 3B" ) selected @endif>Lantai 3 | 3B</option>
-                <option value="Lantai 3 | 3C" @if ( $edit->posisi == "Lantai 3 | 3C" ) selected @endif>Lantai 3 | 3C</option>
-                <option value="Lantai 3 | 3D" @if ( $edit->posisi == "Lantai 3 | 3D" ) selected @endif>Lantai 3 | 3D</option>
-                <option value="Lantai 3 | 3E" @if ( $edit->posisi == "Lantai 3 | 3E" ) selected @endif>Lantai 3 | 3E</option>
-                <option value="Lantai 3 | 3F" @if ( $edit->posisi == "Lantai 3 | 3F" ) selected @endif>Lantai 3 | 3F</option>
-                <option value="Lantai 3 | 3G" @if ( $edit->posisi == "Lantai 3 | 3G" ) selected @endif>Lantai 3 | 3G</option>
-                <option value="Lantai 3 | 3H" @if ( $edit->posisi == "Lantai 3 | 3H" ) selected @endif>Lantai 3 | 3H</option>
-                <option value="Lantai 3 | 3I" @if ( $edit->posisi == "Lantai 3 | 3I" ) selected @endif>Lantai 3 | 3I</option>
-                <option value="Lantai 3 | 3J" @if ( $edit->posisi == "Lantai 3 | 3J" ) selected @endif>Lantai 3 | 3J</option>
+              <select name="posisi" class="form-select" required aria-label="posisi">
+                @foreach ($kamar as $item)
+                <option value="{{ $item->id }}" @if ( $edit->posisi == "{{ $item->id }}" ) selected @endif>{{ $item->kamar }}</option>
+                @endforeach
+                {{-- <option value="Lantai 1 | 1A" @if ( $edit->posisi == "Lantai 1 | 1A" ) selected @endif>Lantai 1 | 1A</option> --}}
             </select><br>
             </div>
 

@@ -13,7 +13,7 @@ class AboutSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('about')->insert([
+        DB::table('abouts')->insert([
             'img' => 'about_-1678439711.jpeg',
             'link' => 'youtube.com',
             'deskripsi' => 'deskripsi judul ke 3',

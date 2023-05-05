@@ -78,7 +78,7 @@
 
                     <div class="section-title">
                         <h2>About Us</h2>
-                        <p>{{ $bout['deskripsiabout'] }}</p>
+                        <p>{{ $bout['deskripsi'] }}</p>
                     </div>
 
                 </div>
@@ -100,7 +100,7 @@
                 <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="count-box">
                         <i class="bi bi-document-folder" style="color: #c042ff;"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $kamar }}" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Jumlah Kamar</p>
                     </div>

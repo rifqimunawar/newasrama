@@ -1,16 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TeamController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\KamarController;
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\GaleriController;
-use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +13,11 @@ use App\Http\Controllers\ContactController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 
 // ==============================================================
 // Route Client
@@ -35,57 +31,13 @@ Route::post('/contact/store', [ContactController ::class, 'store'])->name('store
 // ==============================================================
 // Route Login
 // ==============================================================
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/store', [AuthController::class, 'store'])->name('store');
-Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Route::get('/login', [AuthController::class, 'login'])->name('login');
+// Route::get('/register', [AuthController::class, 'register'])->name('register');
+// Route::post('/store', [AuthController::class, 'store'])->name('store');
+// Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
 // ==============================================================
-// Route Admin
+// Route User
 // ==============================================================
-Route::get('/admin', [AdminController::class, 'index'])->name('index')->middleware('auth');
-// Route Admin Home Edit0
-Route::get('/admin/home', [HomeController::class, 'list'])->name('list')->middleware('auth');
-Route::get('/admin/home/{id}/edit', [HomeController::class, 'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/home/{id}', [HomeController::class, 'update'])->name('update')->middleware('auth');
-// Route Admin About Edit
-Route::get('/admin/about/{id}/edit', [AboutController::class,'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/about/{id}', [AboutController::class,'update'])->name('update')->middleware('auth');
-// Route Admin Galeri Edit
-Route::get('/admin/galeri', [GaleriController ::class, 'list'])->name('list')->middleware('auth');
-Route::get('/admin/galeri/create', [GaleriController ::class, 'create'])->name('create')->middleware('auth');
-Route::post('/admin/galeri/store', [GaleriController ::class, 'store'])->name('store')->middleware('auth');
-Route::get('/admin/galeri/{id}/edit', [GaleriController ::class, 'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/galeri/{id}', [GaleriController ::class, 'update'])->name('update')->middleware('auth');
-Route::delete('/admin/galeri/{id}', [GaleriController::class, 'destroy'])->name('galeri.destroy')->middleware('auth');
-// Route Admin Team Edit
-Route::get('/admin/penghuni', [UserController ::class, 'list'])->name('list')->middleware('auth');
-Route::get('/admin/team/create', [TeamController ::class, 'create'])->name('create')->middleware('auth');
-Route::post('/admin/team/store', [TeamController ::class, 'store'])->name('store')->middleware('auth');
-Route::get('/admin/team/{id}/edit', [TeamController ::class, 'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/team/{id}', [TeamController ::class, 'update'])->name('update')->middleware('auth');
-Route::delete('/admin/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy')->middleware('auth');
-// Route Admin Data Admin
-Route::get('/admin/user', [UserController ::class, 'index'])->name('index')->middleware('auth');
-Route::get('/admin/user/create', [UserController ::class, 'create'])->name('create')->middleware('auth');
-Route::post('/admin/user/store', [UserController ::class, 'store'])->name('store')->middleware('auth');
-Route::get('/admin/user/{id}/edit', [UserController ::class, 'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/user/{id}', [UserController ::class, 'update'])->name('update')->middleware('auth');
-Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('auth');
-// Route Admin Agenda Management
-Route::get('/admin/agenda', [AgendaController ::class, 'list'])->name('list')->middleware('auth');
-Route::get('/admin/agenda/create', [AgendaController ::class, 'create'])->name('create')->middleware('auth');
-Route::post('/admin/agenda/store', [AgendaController ::class, 'store'])->name('store')->middleware('auth');
-Route::get('/admin/agenda/{id}/edit', [AgendaController ::class, 'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/agenda/{id}', [AgendaController ::class, 'update'])->name('update')->middleware('auth');
-Route::delete('/admin/agenda/{id}', [AgendaController::class, 'destroy'])->name('agenda.destroy')->middleware('auth');
-// Route Admin Message Edit
-Route::get('/admin/contact', [ContactController ::class, 'list'])->name('list')->middleware('auth');
-Route::delete('/admin/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy')->middleware('auth');
-// Route Admin Kamar Management
-Route::get('/admin/kamar', [KamarController ::class, 'index'])->name('index')->middleware('auth');
-Route::get('/admin/kamar/create', [KamarController ::class, 'create'])->name('create')->middleware('auth');
-Route::post('/admin/kamar/store', [KamarController ::class, 'store'])->name('store')->middleware('auth');
-Route::get('/admin/kamar/{id}/edit', [KamarController ::class, 'edit'])->name('edit')->middleware('auth');
-Route::put('/admin/kamar/{id}', [KamarController ::class, 'update'])->name('update')->middleware('auth');
-Route::delete('/admin/kamar/{id}', [KamarController::class, 'destroy'])->name('kamar.destroy')->middleware('auth');
