@@ -15,6 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('role_id')->default(2);
+            $table->string('kamar_id')->nullable();
+            $table->string('domisili')->nullable();
+            $table->string('kampus')->nullable();
+            $table->string('pembayaran')->nullable();
+            $table->string('img')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

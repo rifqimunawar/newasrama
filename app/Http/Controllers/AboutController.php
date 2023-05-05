@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AboutController extends Controller
 {
@@ -27,6 +28,7 @@ class AboutController extends Controller
             $about['img'] = $newFileName;
             $about->update();
         }
+        Alert::success('Terima Kasih', 'Halaman sudah di edit');
         return redirect('/admin');
     }
 }

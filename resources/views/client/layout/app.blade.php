@@ -60,6 +60,8 @@
     <!-- JS File -->
     <script src="js/main.js"></script>
   
+    {{-- sweet alert / notification  --}}
+    @include('sweetalert::alert')
   </body>
   
   </html>

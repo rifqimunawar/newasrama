@@ -42,7 +42,7 @@
                               <form action="{{ route('galeri.destroy', $lis->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm mx-2" onclick="return confirm
+                                <button type="submit" class="btn btn-danger btn-sm mx-2" data-confirm-delete="true" onclick="return confirm
                                 ('Apakah Anda yakin ingin menghapus gambar ini?')">Hapus</button>
                             </form>
                           </div>

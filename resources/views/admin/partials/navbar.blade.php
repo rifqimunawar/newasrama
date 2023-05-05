@@ -52,8 +52,8 @@
     </li>
 
     <!-- Nav Item - Team -->
-    <li class="nav-item {{ '/admin/penghuni' ==request()->path()? 'active' :''}}">
-        <a class="nav-link" href="/admin/penghuni">
+    <li class="nav-item {{ '/admin/user' ==request()->path()? 'active' :''}}">
+        <a class="nav-link" href="/admin/user">
             <i class="fas fa-fw fa-users"></i>
             <span>Data Penghuni</span></a>
     </li>
@@ -73,7 +73,7 @@
     </li>
     <!-- Nav Item - Team -->
     <li class="nav-item {{ '/admin/agenda' ==request()->path()? 'active' :''}}">
-        <a class="nav-link" href="/admin/user">
+        <a class="nav-link" href="/admin/dataAdmin">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Admin</span></a>
     </li>

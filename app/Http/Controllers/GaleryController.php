@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Galery;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GaleryController extends Controller
 {
     public function index (Request $request)
     {
         $galeries=Galery ::latest()->get();
-        return view('client.galery', compact('galeries'));
+        $title = 'Delete User!';
+        $text = "Apakah Anda yakin ingin menghapus gambar ini?";
+        confirmDelete($title, $text);
+        return view('client.galery', compact('galeries', 'title', 'text'));
     }
     public function list (Request $request)
     {
@@ -37,6 +41,7 @@ class GaleryController extends Controller
             $galeri['img'] = $newFileName;
             $galeri->save();
         }
+        Alert::success('Terima Kasih', 'Gambar sudah di tambahkan');
         return redirect('/admin/galeri');
     }
 
@@ -60,6 +65,7 @@ class GaleryController extends Controller
             $galeri['img'] = $newFileName;
             $galeri->update();
         }
+        Alert::success('Terima Kasih', 'Gambar sudah di Update');
         return redirect('/admin/galeri/');
     }
 
@@ -67,6 +73,7 @@ class GaleryController extends Controller
     {
         $galeri = Galery::findOrFail($id);
         $galeri->delete();
+        Alert::success('Terima Kasih', 'Gambar sudah di Hapus');
         return redirect('/admin/galeri/');
     }
 }

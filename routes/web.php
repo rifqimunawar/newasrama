@@ -68,4 +68,21 @@ Route::middleware(['auth', 'role:1,'])->group(function () {
     Route::get('/admin/galeri/{id}/edit', [GaleryController ::class, 'edit'])->name('edit');
     Route::put('/admin/galeri/{id}', [GaleryController ::class, 'update'])->name('update');
     Route::delete('/admin/galeri/{id}', [GaleryController::class, 'destroy'])->name('galeri.destroy');
+
+    // Route Admin User Management
+    Route::get('/admin/user', [UserController ::class, 'list'])->name('list');
+    Route::get('/admin/dataAdmin', [UserController ::class, 'dataAdmin'])->name('dataAdmin');
+    // Route Admin Team Edit
+    Route::get('/admin/penghuni', [UserController ::class, 'list'])->name('list');
+    Route::get('/admin/team/create', [TeamController ::class, 'create'])->name('create');
+    Route::post('/admin/team/store', [TeamController ::class, 'store'])->name('store');
+    Route::get('/admin/team/{id}/edit', [TeamController ::class, 'edit'])->name('edit');
+    Route::put('/admin/team/{id}', [TeamController ::class, 'update'])->name('update');
+    Route::delete('/admin/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+    // Route Admin Data Admin
+    Route::get('/admin/user/create', [UserController ::class, 'create'])->name('create');
+    Route::post('/admin/user/store', [UserController ::class, 'store'])->name('store');
+    Route::get('/admin/user/{id}/edit', [UserController ::class, 'edit'])->name('edit');
+    Route::put('/admin/user/{id}', [UserController ::class, 'update'])->name('update');
+    Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 });

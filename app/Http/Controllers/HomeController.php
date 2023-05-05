@@ -9,6 +9,7 @@ use App\Models\Kamar;
 use App\Models\Agenda;
 use App\Models\Galery;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -54,6 +55,7 @@ class HomeController extends Controller
             $home['img'] = $newFileName;
             $home->update();
         }
+        Alert::success('Terima Kasih', 'Halaman sudah di Update');
         return redirect('/admin/home/');
     }
 }

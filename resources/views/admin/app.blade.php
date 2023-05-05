@@ -54,6 +54,9 @@
     <script src="{{ asset ('jsadmin/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset ('jsadmin/demo/chart-pie-demo.js') }}"></script>
 
+    {{-- sweet alert / notification  --}}
+    @include('sweetalert::alert')
+
 </body>
 
 </html>

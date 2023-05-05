@@ -16,7 +16,6 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Penghuni</h6>
         </div>
         <div class="card-body">
-          <a href="/admin/team/create" class="btn btn-primary my-3" >Tambah Penghuni</a>
             <div class="table-responsive">
 
               <div class="mb-3">
