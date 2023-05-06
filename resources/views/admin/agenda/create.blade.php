@@ -42,12 +42,6 @@
                 <label for="exampleFormControlInput1" class="form-label">Nama Kegiatan</label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" name="kegiatan">
               </div>
-            
-              <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Keterangan</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="keterangan" placeholder="optional...">
-              </div>
-
               
               <div class="my-3">
                 <a href="/admin/agenda" class="btn btn-warning">Kembali</a>

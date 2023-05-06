@@ -44,7 +44,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-lg-6 form-group my-3">
-                            <input type="text" name="nama" class="form-control" id="nama" placeholder="Your Name"
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
                                 required>
                         </div>
                         <div class="col-lg-6 form-group my-3">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="text" rows="5" placeholder="Message" required></textarea>
+                        <textarea class="form-control" name="messages" rows="5" placeholder="Message" required></textarea>
                     </div>
                     <div class="text-center"><button type="submit" class="btn btn-primary my-3">Send Message</button>
                     </div>

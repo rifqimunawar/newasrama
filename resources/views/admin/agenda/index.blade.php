@@ -25,7 +25,6 @@
                         <td class="text-center">Hari</td>
                         <td class="text-center">Waktu</td>
                         <td class="text-center">Kegitan</td>
-                        <td class="text-center">Keterangan</td>
                         <td class="text-center"> Aksi </td>
                     </tr>
                     @foreach ($agenda as $lis)
@@ -34,7 +33,6 @@
                         <td>{{ $lis['hari'] }}</td>
                         <td>{{ $lis['waktu'] }}</td>
                         <td>{{ $lis['kegiatan'] }}</td>
-                        <td>{{ $lis['keterangan'] }}</td>
                         <td class="text-center">
                           <div class="btn-group" >
                             <div class="btn">

@@ -24,24 +24,25 @@
                         <td class="text-center">No</td>
                         <td class="text-center">Kamar</td>
                         <td class="text-center">Penghuni</td>
-                        <td class="text-center">Kegitan</td>
-                        <td class="text-center">Keterangan</td>
+                        {{-- <td class="text-center">Kegitan</td>
+                        <td class="text-center">Keterangan</td> --}}
                         <td class="text-center"> Aksi </td>
                     </tr>
-                    @foreach ($kamar as $lis)
+                    @foreach($kamar as $k)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $lis['kamar'] }}</td>
-                        {{-- <td>{{ $lis['user-'] }}</td> --}}
-                        <td>{{ $lis['kegiatan'] }}</td>
-                        <td>{{ $lis['keterangan'] }}</td>
+                        <td>{{ $k->kamar }}</td>
+                        <td>{{ $k->users->count() }}</td>
                         <td class="text-center">
                           <div class="btn-group" >
                             <div class="btn">
-                              <a href="/admin/kamar/{{ $lis->id }}/edit" class="btn btn-warning btn-sm mx-2">Edit</a>
+                              <a href="/admin/kamar/{{ $k->id }}/show" class="btn btn-primary btn-sm mx-2">Lihat</a>
                             </div>
                             <div class="btn">
-                              <form action="{{ route('kamar.destroy', $lis->id) }}" method="POST">
+                              <a href="/admin/kamar/{{ $k->id }}/edit" class="btn btn-warning btn-sm mx-2">Edit</a>
+                            </div>
+                            <div class="btn">
+                              <form action="{{ route('kamar.destroy', $k->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm mx-2" onclick="return confirm

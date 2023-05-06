@@ -29,8 +29,8 @@
                     @foreach ($list as $lis)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td>{{ $lis['text'] }}</td>
-                        <td>{{ $lis['nama'] }}</td>
+                        <td>{{ $lis['messages'] }}</td>
+                        <td>{{ $lis['name'] }}</td>
                         <td>{{ $lis['email'] }}</td>
                         <td class="text-center">
                           <div class="btn-group">

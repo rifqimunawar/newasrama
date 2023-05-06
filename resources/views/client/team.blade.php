@@ -17,8 +17,8 @@
             <div class="member">
               <div class="pic"><img src="{{ asset('storage/img/' . $team['img']) }}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>{{ $team['nama'] }}</h4>
-                <span>{{ $team['posisi'] }}</span>
+                <h4>{{ $team['name'] }}</h4>
+                <span>{{ $team->kamar->kamar }}</span>
                 {{-- <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>

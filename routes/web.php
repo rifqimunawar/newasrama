@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KamarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -85,4 +86,22 @@ Route::middleware(['auth', 'role:1,'])->group(function () {
     Route::get('/admin/user/{id}/edit', [UserController ::class, 'edit'])->name('edit');
     Route::put('/admin/user/{id}', [UserController ::class, 'update'])->name('update');
     Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    // Route Admin Agenda Management
+    Route::get('/admin/agenda', [AgendaController ::class, 'list'])->name('list');
+    Route::get('/admin/agenda/create', [AgendaController ::class, 'create'])->name('create');
+    Route::post('/admin/agenda/store', [AgendaController ::class, 'store'])->name('store');
+    Route::get('/admin/agenda/{id}/edit', [AgendaController ::class, 'edit'])->name('edit');
+    Route::put('/admin/agenda/{id}', [AgendaController ::class, 'update'])->name('update');
+    Route::delete('/admin/agenda/{id}', [AgendaController::class, 'destroy'])->name('agenda.destroy');
+    // Route Admin Message Edit
+    Route::get('/admin/contact', [ContactController ::class, 'list'])->name('list');
+    Route::delete('/admin/contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+    // Route Admin Agenda Management
+    Route::get('/admin/kamar', [KamarController ::class, 'index'])->name('index');
+    Route::get('/admin/kamar/create', [KamarController ::class, 'create'])->name('create');
+    Route::post('/admin/kamar/store', [KamarController ::class, 'store'])->name('store');
+    Route::get('/admin/kamar/{id}/edit', [KamarController ::class, 'edit'])->name('edit');
+    Route::get('/admin/kamar/{id}/show', [KamarController ::class, 'show'])->name('show');
+    Route::put('/admin/kamar/{id}', [KamarController ::class, 'update'])->name('update');
+    Route::delete('/admin/kamar/{id}', [KamarController::class, 'destroy'])->name('kamar.destroy');
 });

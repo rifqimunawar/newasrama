@@ -52,6 +52,13 @@
     </li>
 
     <!-- Nav Item - Team -->
+    <li class="nav-item {{ '/admin/kamar' ==request()->path()? 'active' :''}}">
+        <a class="nav-link" href="/admin/kamar">
+            <i class="fas fa-fw fa-hotel"></i>
+            <span>Kamar</span></a>
+    </li>
+
+    <!-- Nav Item - Team -->
     <li class="nav-item {{ '/admin/user' ==request()->path()? 'active' :''}}">
         <a class="nav-link" href="/admin/user">
             <i class="fas fa-fw fa-users"></i>
