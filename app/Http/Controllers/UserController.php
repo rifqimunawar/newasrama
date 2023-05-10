@@ -68,7 +68,7 @@ class UserController extends Controller
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'pengajar' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->storeAs('/img', $newFileName);
+            $request->file('img')->move('/storage/img', $newFileName);
             $team['img'] = $newFileName;
             $team->save();
         }
@@ -102,7 +102,7 @@ class UserController extends Controller
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'user_update' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->storeAs('/img', $newFileName);
+            $request->file('img')->move('/storage/img', $newFileName);
             $user['img'] = $newFileName;
             $user->update();
         }
