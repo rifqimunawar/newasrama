@@ -24,7 +24,7 @@ class AboutController extends Controller
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'about' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->move('/storage/img', $newFileName);
+            $request->file('img')->storeAs('/img', $newFileName);
             $about['img'] = $newFileName;
             $about->update();
         }

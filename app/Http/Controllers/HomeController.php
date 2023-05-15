@@ -51,7 +51,7 @@ class HomeController extends Controller
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'home' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->move('/storage/img', $newFileName);
+            $request->file('img')->storeAs('/img', $newFileName);
             $home['img'] = $newFileName;
             $home->update();
         }

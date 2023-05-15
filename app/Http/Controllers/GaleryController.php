@@ -37,7 +37,7 @@ class GaleryController extends Controller
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'galeri' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->move('/storage/img', $newFileName);
+            $request->file('img')->storeAs('/img', $newFileName);
             $galeri['img'] = $newFileName;
             $galeri->save();
         }
@@ -61,7 +61,7 @@ class GaleryController extends Controller
         if ($request->img) {
             $extension = $request->img->getClientOriginalExtension();
             $newFileName = 'galeri_update' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->move('/storage/img', $newFileName);
+            $request->file('img')->storeAs('/img', $newFileName);
             $galeri['img'] = $newFileName;
             $galeri->update();
         }
