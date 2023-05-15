@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $teams = User::latest()->get();
+        $teams = User::latest()->where('role_id', 2)->get();
         return view('client.team', compact('teams'));
     }
     
