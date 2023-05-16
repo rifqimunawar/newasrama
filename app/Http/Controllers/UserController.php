@@ -56,7 +56,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.team.create');
+        return view('admin.user.create');
     }
 
     /**
@@ -66,23 +66,13 @@ class UserController extends Controller
     {
 
         $team = new User ();
-        $team->nama = $request->nama;
-        $team->posisi = $request->posisi;
-        $team->hp = $request->hp;
-        $team->kampus = $request->kampus;
-        $team->domisili = $request->domisili;
-        $team->pembayaran = $request->pembayaran;
-
-
-        $team->save();
-        if ($request->img) {
-            $extension = $request->img->getClientOriginalExtension();
-            $newFileName = 'pengajar' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->storeAs('/img', $newFileName);
-            $team['img'] = $newFileName;
-            $team->save();
-        }
-        return redirect('/admin/team');
+        
+        $team->name = $request->name;
+        $team->email = $request->email;
+        $team->role_id = $request->role_id;
+        $team->password = bcrypt( $request->password);
+        
+        return redirect('/admin/dataAdmin');
     }
     /**
      * Show the form for editing the specified resource.

@@ -16,7 +16,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
         </div>
         <div class="card-body">
-          <a href="/admin/user/create" class="btn btn-primary my-3" >Tambah Admin</a>
+          <a href="/register" class="btn btn-primary my-3" >Tambah Admin</a>
             <div class="table-responsive">
 
               <div class="mb-3">
