@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ContactController extends Controller
 {
@@ -26,6 +27,7 @@ class ContactController extends Controller
         $contact->email = $request->email;
         $contact->messages = $request->messages;
         $contact->save();
+        Alert::success('Terima Kasih', 'Pesan Sudah Termikirim');
         return redirect('/contact')->with("Terima Kasih Atas Masukannya");
     }
 
