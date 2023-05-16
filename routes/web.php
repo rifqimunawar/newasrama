@@ -48,6 +48,7 @@ Route::middleware(['auth', 'role:1,'])->group(function () {
     Route::get('/galeri', [GaleryController::class, 'index'])->name('index');
     Route::get('/agenda', [AgendaController::class, 'index'])->name('index');
     Route::get('/user', [UserController::class, 'index'])->name('index');
+    Route::get('/kamar/user/{id}', [UserController::class, 'kamaruser'])->name('kamar.user');
     Route::post('/contact/store', [ContactController ::class, 'store'])->name('store');
 });
 

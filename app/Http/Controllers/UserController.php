@@ -12,8 +12,18 @@ class UserController extends Controller
     public function index()
     {
         $teams = User::latest()->where('role_id', 2)->get();
-        return view('client.team', compact('teams'));
+        $kamar = Kamar::with('users')->get();
+        // $kamarid = Kamar::with('users')->find($id);
+        return view('client.team', compact('teams', 'kamar'));
     }
+    public function kamaruser($id, Request $request)
+    {
+        $kamaruser = Kamar::with(['users' => function ($query) {
+            $query->where('role_id', 2);
+            }])->find($id);
+        
+        return view('client.detailteam', compact('kamaruser'));
+    }    
     
     public function list(Request $request)
     {
@@ -89,26 +99,29 @@ class UserController extends Controller
      * Update the specified resource in storage.
      */
 
-    public function update($id, Request $request)
-    {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->kamar_id = $request->kamar_id;
-        $user->hp = $request->hp;
-        $user->kampus = $request->kampus;
-        $user->domisili = $request->domisili;
-        $user->pembayaran = $request->pembayaran;       
+     public function update($id, Request $request)
+     {
+     $user = User::find($id);
+     $user->name = $request->input('name');
+     $user->kamar_id = $request->input('kamar_id');
+     $user->hp = $request->input('hp');
+     $user->kampus = $request->input('kampus');
+     $user->domisili = $request->input('domisili');
+     $user->pembayaran = $request->input('pembayaran');
 
-        if ($request->img) {
-            $extension = $request->img->getClientOriginalExtension();
-            $newFileName = 'user_update' . '_' . $request->nama . '-' . now()->timestamp . '.' . $extension;
-            $request->file('img')->storeAs('/img', $newFileName);
-            $user['img'] = $newFileName;
-            $user->update();
-        }
-        Alert::success('Terima Kasih', 'Data Penghuni Sudah Diupdate');
-        return redirect('/admin/penghuni/');
+     if ($request->hasFile('img')) {
+        $extension = $request->file('img')->getClientOriginalExtension();
+        $newFileName = 'user_update' . '_' . $request->input('name') . '-' . now()->timestamp . '.' . $extension;
+        $request->file('img')->storeAs('img', $newFileName);
+        $user->img = $newFileName;
     }
+    
+    $user->save();
+    
+    Alert::success('Terima Kasih', 'Data Penghuni Sudah Diupdate');
+    return redirect('/admin/penghuni/');
+}
+    
 
     /**
      * Remove the specified resource from storage.
