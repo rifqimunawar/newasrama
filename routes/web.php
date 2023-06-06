@@ -44,7 +44,7 @@ Route::post('/register', [AuthController::class, 'register']);
 // ==============================================================
 // Route User
 // ==============================================================
-Route::middleware(['auth', 'role:1,'])->group(function () {
+Route::middleware(['auth', 'role:1, 2'])->group(function () {
     Route::get('/galeri', [GaleryController::class, 'index'])->name('index');
     Route::get('/agenda', [AgendaController::class, 'index'])->name('index');
     Route::get('/user', [UserController::class, 'index'])->name('index');

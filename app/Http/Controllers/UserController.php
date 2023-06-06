@@ -11,9 +11,10 @@ class UserController extends Controller
 {
     public function index()
     {
-        $teams = User::latest()->where('role_id', 2)->get();
+        $teams = User::latest()->where('role_id', 2)->when('kamar')->get();
         $kamar = Kamar::with('users')->get();
         // $kamarid = Kamar::with('users')->find($id);
+        // dd($teams);
         return view('client.team', compact('teams', 'kamar'));
     }
     public function kamaruser($id, Request $request)

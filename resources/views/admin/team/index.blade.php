@@ -37,6 +37,7 @@
                         <td class="text-center">Profile</td>
                         <td class="text-center">Aksi</td>
                     </tr>
+                    {{-- @dd($kamar) --}}
                     @foreach ($list as $lis)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
